@@ -1,0 +1,22 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot-specific ignore patterns
+
+# Import and Cache directories
+.import/
+.cache/
+
+# Godot export files
+export/
+
+# Export templates and backups
+*.godot_export
+*.godot_export.bkp
+
+# Mono-specific ignore patterns (if you're using C#)
+*.mono/
+*.csproj
+*.sln
+.mono/
