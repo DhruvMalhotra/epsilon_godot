@@ -7,9 +7,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
-		get_tree().change_scene("res://talking_screen.tscn")
+		var talking_screen = get_tree().root.get_node("root/talking_screen")
+		self.hide()
+		talking_screen.show()
