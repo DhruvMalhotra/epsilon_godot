@@ -20,3 +20,4 @@ export/
 *.csproj
 *.sln
 .mono/
+.DS_Store
