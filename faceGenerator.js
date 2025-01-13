@@ -89,9 +89,11 @@ class FaceGenerator {
 
 	// Play the audio and viseme in sync
 	PlayAudioVisemeSync(onlyAudio){
+		_audio.onplay = () => {
+			if (!onlyAudio) this.playViseme();
+			return;
+		}
 		_audio.play();
-		if (!onlyAudio) this.playViseme();
-		return;
 	}
 
 	playViseme = () => {
