@@ -1,7 +1,6 @@
 const models = ['llama-3.3-70b-versatile', 'llama3-70b-8192', 'llama-3.1-8b-instant', 'llama3-8b-8192'];
 const groqurl = "https://api.groq.com/openai/v1/chat/completions";
 const standardResponses = [
-    "I'm sorry, I don't understand. Can you please rephrase your question?",
     "Oops! My circuits hiccuped. Mind saying that again?",
     "Sorry, I zoned out like a cat in a sunbeam. One more time?",
     "Wow, that went right over my head. Let’s give it another shot.",
@@ -16,7 +15,7 @@ class LLM {
         this.systemPrompt = "";
         this.lastState = 0;
         this.lastSpeaker = "astro";
-        this.responseTimeout = 400;
+        this.responseTimeout = 5000;
     }
 
     async startConversation(key, system_prompt, user_prompt) {
