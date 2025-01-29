@@ -24,7 +24,7 @@ class FaceGenerator {
 	}
 	
 	// Function to handle speech synthesis
-	async generate(text,voice,onlyAudio=false) {
+	async generate(text, voice, onlyAudio=false) {
 		if (!text) return;
 
 		//Clear the viseme array
@@ -112,6 +112,23 @@ class FaceGenerator {
 			}, duration);
 		});
 	}
+
+	stop() {
+        if (_audio) {
+            _audio.pause();  // Pause the audio
+            _audio.currentTime = 0;  // Reset to beginning
+            
+            // Clear any pending viseme timeouts
+            const highestTimeoutId = setTimeout(() => {}, 0);
+            for (let i = 0; i < highestTimeoutId; i++) {
+                clearTimeout(i);
+            }
+            
+            // Reset viseme to idle
+            this.currentViseme = 1;
+            window.TLBTC.dialogue_state = 'idle';
+        }
+    }
 }
 
 export default FaceGenerator;

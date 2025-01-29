@@ -61,6 +61,7 @@ class SpeechRecognizer {
 
     startListening() {
         _recognitionStopped = false;
+        this.recognizedText = "";  // Clear text when starting
         this.recognition.start();
     }
 
